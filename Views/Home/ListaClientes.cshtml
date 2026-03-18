@@ -1,0 +1,33 @@
+﻿@model List<AtvDataAnnotations.Models.ClientePremiumViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<h2>Clientes Cadastrados</h2>
+
+<a asp-action="Cadastrar" class="btn btn-primary mb-3">
+    Novo Cliente
+</a>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Renda</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cliente in Model)
+    {
+        <tr>
+            <td>@cliente.NomeCompleto</td>
+            <td>@cliente.Cpf</td>
+            <td>@cliente.TelefoneCelular</td>
+            <td>@cliente.RendaMensal.ToString("C")</td>
+        </tr>
+    }
+    </tbody>
+</table>
